@@ -1,0 +1,5 @@
+<!-- Fragmento para o ossec.conf do agente Windows. -->
+<localfile>
+  <location>Microsoft-Windows-Sysmon/Operational</location>
+  <log_format>eventchannel</log_format>
+</localfile>

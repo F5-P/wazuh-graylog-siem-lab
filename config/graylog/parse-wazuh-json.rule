@@ -1,0 +1,27 @@
+rule "Parse Wazuh JSON Final"
+when
+  has_field("message") &&
+  contains(to_string($message.message), "ossec:")
+then
+  let raw = regex_replace(
+    pattern: "^.*?ossec:\\s*",
+    value: to_string($message.message),
+    replacement: ""
+  );
+
+  let json = parse_json(raw);
+
+  let fields = select_jsonpath(
+    json: json,
+    paths: {
+      wazuh_rule_id: "$.rule.id",
+      wazuh_rule_level: "$.rule.level",
+      wazuh_rule_description: "$.rule.description",
+      wazuh_agent_id: "$.agent.id",
+      wazuh_agent_name: "$.agent.name",
+      wazuh_agent_ip: "$.agent.ip"
+    }
+  );
+
+  set_fields(fields);
+end

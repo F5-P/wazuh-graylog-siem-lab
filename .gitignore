@@ -1,0 +1,20 @@
+# Credenciais e configurações locais
+.env
+.env.*
+*.pem
+*.key
+client.keys*
+wazuh-install-files.tar
+
+# VMs, backups e logs brutos
+*.vdi
+*.vmdk
+*.ova
+*.vbox*
+*.log
+*.bak
+*.backup
+
+# Arquivos locais do sistema
+.DS_Store
+Thumbs.db

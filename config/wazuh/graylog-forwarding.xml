@@ -1,0 +1,6 @@
+<!-- Fragmento para o ossec.conf do Manager; adaptar o IP do destino. -->
+<syslog_output>
+  <server>192.168.56.30</server>
+  <port>5140</port>
+  <format>json</format>
+</syslog_output>
